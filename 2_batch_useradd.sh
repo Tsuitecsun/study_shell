@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# 创建10个用户，并给他们设置随机密码，密码记录到一个文件里，文件名userinfo.txt用户从user 00到user _09
+# 密码要求:包含大小写字母以及数字，密码长度15位
 
 user_add(){
 user_info_dir=/var/log/

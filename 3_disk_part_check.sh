@@ -1,4 +1,5 @@
 #!/bin/bash
+# 写一个检测脚本，用来检测本机所有磁盘分区读写是否都正常。
 
 disk_part_check(){
     local bs=$1

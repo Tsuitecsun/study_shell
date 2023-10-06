@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# 备份文件
 
 backup_file(){
 base_dir=/data/
