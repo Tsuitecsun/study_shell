@@ -11,7 +11,6 @@
 
 need_migration_path=/data/business/
 migration_path=/data1/business/  
-[ ! -d ${migration_path} ] && mkdir -p ${migration_path}
 date_log=`date "+%c"`
 migration_log_path=/var/log/migration_log/
 [ ! -d ${migration_log_path} ] && mkdir ${migration_log_path}
@@ -21,15 +20,14 @@ migration_dir(){
 echo "******************迁移开始*******************"
 for i in `find ${need_migration_path} -maxdepth 1 -type d | sed '1d'`
 do 
-    mv ${i} ${migration_path}
     echo "正在迁移--------->${i}"
     base_name=`basename ${i}`
+    mv ${i} ${migration_path}
     if [ $? -eq 0 ]
     then
         migration_log ${base_name} 0
     else
-        migration_log ${base_name} 0
-
+        migration_log ${base_name} 1
     fi
 done
 echo "******************迁移结束*******************"
